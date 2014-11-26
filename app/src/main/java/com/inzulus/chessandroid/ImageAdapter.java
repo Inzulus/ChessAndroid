@@ -45,6 +45,16 @@ public class ImageAdapter extends BaseAdapter{
         return imageView;
     }
 
+    public boolean checkEmpty(int position){
+        if (figure_pos[position] == R.drawable.brown)
+            return true;
+        if (figure_pos[position] == R.drawable.white)
+            return true;
+        else
+            return false;
+
+    }
+
 
     public void setFigure(int position, int fig_id){
         figure_pos[position] = figure_id[fig_id];
