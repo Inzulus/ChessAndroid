@@ -1,4 +1,4 @@
-package com.inzulus.chess;
+package com.inzulus.chessandroid;
 
 import android.content.Context;
 import android.view.View;

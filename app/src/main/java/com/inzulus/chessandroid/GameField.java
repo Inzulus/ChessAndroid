@@ -1,4 +1,4 @@
-package com.inzulus.chess;
+package com.inzulus.chessandroid;
 
 import android.app.Activity;
 import android.os.Bundle;
