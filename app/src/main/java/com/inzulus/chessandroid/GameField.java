@@ -13,10 +13,14 @@ import android.widget.GridView;
 
 public class GameField extends Activity implements View.OnTouchListener {
 
-    int[][] field = new int[7][7];
     boolean selectFigure = false;
     int figureID = 99;
     int positionOld = 0;
+
+    int[][] field = {{5,4,3,2,1,3,4,5},{6,6,6,6,6,6,6,6},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0}
+                    ,{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{12,12,12,12,12,12,12,12},{11,10,9,8,7,9,10,11}};
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,8 @@ public class GameField extends Activity implements View.OnTouchListener {
         gridView.setAdapter(imageAdapter);
 
 
+
+
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 //Toast.makeText(GameField.this, "" + position, Toast.LENGTH_SHORT).show();
@@ -43,14 +49,66 @@ public class GameField extends Activity implements View.OnTouchListener {
                 }
 
                 if (((ImageAdapter) gridView.getAdapter()).checkEmpty(position) == true && selectFigure == true) {
-                    ((ImageAdapter) gridView.getAdapter()).setFigure(position, figureID);
-                    ((ImageAdapter) gridView.getAdapter()).setEmpty(positionOld);
-                    selectFigure = false;
+                    if (turnValid(positionOld,position,figureID) ==true) {
+                        ((ImageAdapter) gridView.getAdapter()).setFigure(position, figureID);
+                        ((ImageAdapter) gridView.getAdapter()).setEmpty(positionOld);
+                        selectFigure = false;
+                    }
                 }
 
                 //((ImageAdapter) gridView.getAdapter()).setFigure(position, 1);
             }
         });
+    }
+
+    public boolean turnValid(int positionOld, int position, int figID){
+        //converting postion into x,y
+        int yOld = positionOld/8;
+        int xOld = positionOld - yOld*8;
+
+        int y = position/8;
+        int x = position - y*8;
+
+        //Black Pawn
+        if(figID == 12) {
+            if (y - yOld == 1 && x - xOld == 0 ){
+                return true;
+            }
+        }
+        //White Pawn
+        if(figID == 6){
+            if (y - yOld == -1 && x - xOld == 0 ){
+                return true;
+            }
+        }
+
+        //King
+        if(figID == 1 || figID == 7){
+            if (y - yOld >= -1 && y - yOld <= 1 && x - xOld <= 1 && x - xOld >= -1) {
+                return true;
+            }
+        }
+        //Queen
+        if(figID == 2 || figID == 8){
+            return true;
+        }
+        //Bishop
+        if(figID == 3 || figID == 9){
+            return true;
+        }
+        //Knight
+        if(figID == 4 || figID == 10){
+            return true;
+        }
+        //Rook
+        if(figID == 5 || figID == 11){
+            if(y-yOld == 0 || x-xOld == 0) {
+                return true;
+            }
+        }
+
+        return false;
+
     }
 
     @Override

@@ -56,29 +56,31 @@ public class ImageAdapter extends BaseAdapter{
     public int getFigureId(int position){
         switch (figure_pos[position]) {
             case R.drawable.wking:
-                return 0;
-            case R.drawable.wqueen:
                 return 1;
-            case R.drawable.wbishop:
+            case R.drawable.wqueen:
                 return 2;
-            case R.drawable.wknight:
+            case R.drawable.wbishop:
                 return 3;
-            case R.drawable.wrook:
+            case R.drawable.wknight:
                 return 4;
-            case R.drawable.wpawn:
+            case R.drawable.wrook:
                 return 5;
-            case R.drawable.bking:
+            case R.drawable.wpawn:
                 return 6;
-            case R.drawable.bqueen:
+            case R.drawable.bking:
                 return 7;
-            case R.drawable.bbishop:
+            case R.drawable.bqueen:
                 return 8;
-            case R.drawable.bknight:
+            case R.drawable.bbishop:
                 return 9;
-            case R.drawable.brook:
+            case R.drawable.bknight:
                 return 10;
-            case R.drawable.bpawn:
+            case R.drawable.brook:
                 return 11;
+            case R.drawable.bpawn:
+                return 12;
+            case R.drawable.empty:
+                return 0;
         }
         return 99;
     }
@@ -94,7 +96,7 @@ public class ImageAdapter extends BaseAdapter{
     }
 
     private Integer[] figure_id = {
-            R.drawable.wking,R.drawable.wqueen,R.drawable.wbishop,R.drawable.wknight,R.drawable.wrook,R.drawable.wpawn,
+            R.drawable.empty,R.drawable.wking,R.drawable.wqueen,R.drawable.wbishop,R.drawable.wknight,R.drawable.wrook,R.drawable.wpawn,
             R.drawable.bking,R.drawable.bqueen,R.drawable.bbishop,R.drawable.bknight,R.drawable.brook,R.drawable.bpawn,
     };
 
