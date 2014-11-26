@@ -46,19 +46,51 @@ public class ImageAdapter extends BaseAdapter{
     }
 
     public boolean checkEmpty(int position){
-        if (figure_pos[position] == R.drawable.brown)
-            return true;
-        if (figure_pos[position] == R.drawable.white)
+        if (figure_pos[position] == R.drawable.empty)
             return true;
         else
             return false;
 
     }
 
+    public int getFigureId(int position){
+        switch (figure_pos[position]) {
+            case R.drawable.wking:
+                return 0;
+            case R.drawable.wqueen:
+                return 1;
+            case R.drawable.wbishop:
+                return 2;
+            case R.drawable.wknight:
+                return 3;
+            case R.drawable.wrook:
+                return 4;
+            case R.drawable.wpawn:
+                return 5;
+            case R.drawable.bking:
+                return 6;
+            case R.drawable.bqueen:
+                return 7;
+            case R.drawable.bbishop:
+                return 8;
+            case R.drawable.bknight:
+                return 9;
+            case R.drawable.brook:
+                return 10;
+            case R.drawable.bpawn:
+                return 11;
+        }
+        return 99;
+    }
+
 
     public void setFigure(int position, int fig_id){
         figure_pos[position] = figure_id[fig_id];
         notifyDataSetChanged();
+    }
+
+    public void setEmpty(int position){
+        figure_pos[position] = R.drawable.empty;
     }
 
     private Integer[] figure_id = {
@@ -69,10 +101,10 @@ public class ImageAdapter extends BaseAdapter{
     private Integer[] figure_pos = {
             R.drawable.brook,R.drawable.bknight,R.drawable.bbishop,R.drawable.bqueen,R.drawable.bking,R.drawable.bbishop,R.drawable.bknight,R.drawable.brook,
             R.drawable.bpawn,R.drawable.bpawn,R.drawable.bpawn,R.drawable.bpawn,R.drawable.bpawn,R.drawable.bpawn,R.drawable.bpawn,R.drawable.bpawn,
-            R.drawable.white, R.drawable.brown,R.drawable.white, R.drawable.brown,R.drawable.white, R.drawable.brown,R.drawable.white, R.drawable.brown,
-            R.drawable.brown, R.drawable.white, R.drawable.brown,R.drawable.white, R.drawable.brown,R.drawable.white, R.drawable.brown,R.drawable.white,
-            R.drawable.white, R.drawable.brown,R.drawable.white, R.drawable.brown,R.drawable.white, R.drawable.brown,R.drawable.white, R.drawable.brown,
-            R.drawable.brown, R.drawable.white, R.drawable.brown,R.drawable.white, R.drawable.brown,R.drawable.white, R.drawable.brown,R.drawable.white,
+            R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,
+            R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,
+            R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,
+            R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,
             R.drawable.wpawn,R.drawable.wpawn,R.drawable.wpawn,R.drawable.wpawn,R.drawable.wpawn,R.drawable.wpawn,R.drawable.wpawn,R.drawable.wpawn,
             R.drawable.wrook,R.drawable.wknight,R.drawable.wbishop,R.drawable.wqueen,R.drawable.wking,R.drawable.wbishop,R.drawable.wknight,R.drawable.wrook,
 

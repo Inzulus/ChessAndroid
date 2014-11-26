@@ -6,35 +6,50 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.view.View;
-import android.widget.Toast;
 
 
-public class GameField extends Activity implements View.OnTouchListener{
+public class GameField extends Activity implements View.OnTouchListener {
 
     int[][] field = new int[7][7];
+    boolean selectFigure = false;
+    int figureID = 99;
+    int positionOld = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_field);
 
-        final GridView gridViewBackground = (GridView)findViewById(R.id.gridView1);
+        final GridView gridViewBackground = (GridView) findViewById(R.id.gridView1);
         FieldAdapter fieldAdapter = new FieldAdapter(this);
         gridViewBackground.setAdapter(fieldAdapter);
 
-        final GridView gridView = (GridView)findViewById(R.id.gridView2);
+        final GridView gridView = (GridView) findViewById(R.id.gridView2);
         ImageAdapter imageAdapter = new ImageAdapter(this);
         gridView.setAdapter(imageAdapter);
 
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                Toast.makeText(GameField.this, "" + position, Toast.LENGTH_SHORT).show();
-                ((ImageAdapter)gridView.getAdapter()).setFigure(position,1);
+                //Toast.makeText(GameField.this, "" + position, Toast.LENGTH_SHORT).show();
+
+                if (((ImageAdapter) gridView.getAdapter()).checkEmpty(position) == false) {
+                    figureID = ((ImageAdapter) gridView.getAdapter()).getFigureId(position);
+                    positionOld = position;
+                    selectFigure = true;
                 }
+
+                if (((ImageAdapter) gridView.getAdapter()).checkEmpty(position) == true && selectFigure == true) {
+                    ((ImageAdapter) gridView.getAdapter()).setFigure(position, figureID);
+                    ((ImageAdapter) gridView.getAdapter()).setEmpty(positionOld);
+                    selectFigure = false;
+                }
+
+                //((ImageAdapter) gridView.getAdapter()).setFigure(position, 1);
+            }
         });
     }
 
