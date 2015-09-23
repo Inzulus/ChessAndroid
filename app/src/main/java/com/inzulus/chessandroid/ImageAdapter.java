@@ -29,6 +29,23 @@ public class ImageAdapter extends BaseAdapter{
         return 0;
     }
 
+    private Integer[] figure_id = {
+            R.drawable.empty,R.drawable.wking,R.drawable.wqueen,R.drawable.wbishop,R.drawable.wknight,R.drawable.wrook,R.drawable.wpawn,
+            R.drawable.bking,R.drawable.bqueen,R.drawable.bbishop,R.drawable.bknight,R.drawable.brook,R.drawable.bpawn,
+    };
+
+    private Integer[] figure_pos = {
+            R.drawable.brook,R.drawable.bknight,R.drawable.bbishop,R.drawable.bqueen,R.drawable.bking,R.drawable.bbishop,R.drawable.bknight,R.drawable.brook,
+            R.drawable.bpawn,R.drawable.bpawn,R.drawable.bpawn,R.drawable.bpawn,R.drawable.bpawn,R.drawable.bpawn,R.drawable.bpawn,R.drawable.bpawn,
+            R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,
+            R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,
+            R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,
+            R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,
+            R.drawable.wpawn,R.drawable.wpawn,R.drawable.wpawn,R.drawable.wpawn,R.drawable.wpawn,R.drawable.wpawn,R.drawable.wpawn,R.drawable.wpawn,
+            R.drawable.wrook,R.drawable.wknight,R.drawable.wbishop,R.drawable.wqueen,R.drawable.wking,R.drawable.wbishop,R.drawable.wknight,R.drawable.wrook,
+
+    };
+
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView imageView;
@@ -95,20 +112,5 @@ public class ImageAdapter extends BaseAdapter{
         figure_pos[position] = R.drawable.empty;
     }
 
-    private Integer[] figure_id = {
-            R.drawable.empty,R.drawable.wking,R.drawable.wqueen,R.drawable.wbishop,R.drawable.wknight,R.drawable.wrook,R.drawable.wpawn,
-            R.drawable.bking,R.drawable.bqueen,R.drawable.bbishop,R.drawable.bknight,R.drawable.brook,R.drawable.bpawn,
-    };
 
-    private Integer[] figure_pos = {
-            R.drawable.brook,R.drawable.bknight,R.drawable.bbishop,R.drawable.bqueen,R.drawable.bking,R.drawable.bbishop,R.drawable.bknight,R.drawable.brook,
-            R.drawable.bpawn,R.drawable.bpawn,R.drawable.bpawn,R.drawable.bpawn,R.drawable.bpawn,R.drawable.bpawn,R.drawable.bpawn,R.drawable.bpawn,
-            R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,
-            R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,
-            R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,
-            R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,R.drawable.empty,
-            R.drawable.wpawn,R.drawable.wpawn,R.drawable.wpawn,R.drawable.wpawn,R.drawable.wpawn,R.drawable.wpawn,R.drawable.wpawn,R.drawable.wpawn,
-            R.drawable.wrook,R.drawable.wknight,R.drawable.wbishop,R.drawable.wqueen,R.drawable.wking,R.drawable.wbishop,R.drawable.wknight,R.drawable.wrook,
-
-    };
 }

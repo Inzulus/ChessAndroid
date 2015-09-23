@@ -71,13 +71,13 @@ public class GameField extends Activity implements View.OnTouchListener {
 
         //Black Pawn
         if(figID == 12) {
-            if (y - yOld == 1 && x - xOld == 0 ){
+            if (y - yOld == 1 && x - xOld == 0 || y-yOld == 2 && yOld == 1 && x- xOld == 0){
                 return true;
             }
         }
         //White Pawn
         if(figID == 6){
-            if (y - yOld == -1 && x - xOld == 0 ){
+            if (y - yOld == -1 && x - xOld == 0 || y-yOld == -2 && yOld == 6 && x- xOld == 0){
                 return true;
             }
         }

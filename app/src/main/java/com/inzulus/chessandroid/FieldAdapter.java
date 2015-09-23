@@ -36,8 +36,9 @@ public class FieldAdapter extends BaseAdapter {
         if (convertView == null) {  // if it's not recycled, initialize some attributes
             imageView = new ImageView(mContext);
             imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            imageView.setPadding(0,0,0,0);
+           //imageView.setScaleType(ImageView.ScaleType.CENTER);
+            imageView.setPadding(0, 0, 0, 0);
+            imageView.setScaleType(ImageView.ScaleType.CENTER);
         } else {
             imageView = (ImageView) convertView;
         }
